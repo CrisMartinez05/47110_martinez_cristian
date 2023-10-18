@@ -1,26 +1,101 @@
-function imbHombre(){
-    if(edad>60){
-let resultadoImb = peso*13.5+487;
-alert ("Su imb es"+ blanco+ resultadoImb);
-    }else if(edad>30){
-        let resultadoImb = peso*11.6+879;
-        alert ("Su imb es"+ blanco+ resultadoImb);
-    }else if(edad>18){
-        let resultadoImb = peso*15.3+679;
-        alert ("Su imb es"+ blanco+ resultadoImb);
-    }else if(edad>9){
-        let resultadoImb = peso*17.5+651;
-        alert ("Su imb es"+ blanco+ resultadoImb);
-    }else{
-        alert("No se puede calcular.");
-    }
-}
-
 const punto = ".";
 const blanco = " ";
 let nombreUsuario = prompt("Por favor ingrese su nombre.");
 let peso = 0;
 let edad = 0;
+let nivelActividad;
+let resultadoImb;
+let reqCalorico;
+
+function imbHombre() {
+    if (edad > 60) {
+        resultadoImb = peso * 13.5 + 487;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else if (edad > 30) {
+        resultadoImb = peso * 11.6 + 879;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else if (edad > 18) {
+        resultadoImb = peso * 15.3 + 679;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else if (edad > 9) {
+        resultadoImb = peso * 17.5 + 651;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else {
+        alert("Su metabolismo basal no se debe calcular.");
+    }
+    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");
+    switch (nivelActividad) {
+        case "1":
+            reqCalorico = resultadoImb * 1.2;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "2":
+            reqCalorico = resultadoImb * 1.3;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "3":
+            reqCalorico = resultadoImb * 1.4;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "4":
+            reqCalorico = resultadoImb * 1.5;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "5":
+            reqCalorico = resultadoImb * 1.7;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        default:
+            alert("Digite una opción válida.");
+            break;
+    }
+}
+
+function imbMujer() {
+    if (edad > 60) {
+        resultadoImb = peso * 10.5 + 596;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else if (edad > 30) {
+        resultadoImb = peso * 8.7 + 829;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else if (edad > 18) {
+        resultadoImb = peso * 14.7 + 479;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else if (edad > 9) {
+        resultadoImb = peso * 12.2 + 746;
+        alert("Su metabolismo basal es de" + blanco + resultadoImb + blanco + "calorías" + punto);
+    } else {
+        alert("Su metabolismo basal no se debe calcular.");
+    }
+    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");
+    switch (nivelActividad) {
+        case "1":
+            reqCalorico = resultadoImb * 1.2;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "2":
+            reqCalorico = resultadoImb * 1.3;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "3":
+            reqCalorico = resultadoImb * 1.4;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "4":
+            reqCalorico = resultadoImb * 1.5;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        case "5":
+            reqCalorico = resultadoImb * 1.7;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico + blanco + "calorías al día" + punto);
+            break;
+        default:
+            alert("Digite una opción válida.");
+            break;
+    }
+}
+
+
 
 while (nombreUsuario == "") {
     alert("Debe ingresar un nombre válido.");
@@ -37,23 +112,22 @@ peso = parseInt(prompt("Ahora ingrese su peso en kilos."));
 alert("El peso ingresado es" + blanco + peso + blanco + "kilos" + punto);
 
 let condicion = prompt("Indiquenos su condición. Digite 1 para Hombre - 2 para Mujer y 0 para salir");
-while(condicion!= "0"){
+while (condicion != "0") {
     switch (condicion) {
         case "1":
-            //alert("Hola Hombre!!");
             imbHombre();
             break;
         case "2":
-            alert("Hola Mujer!!");
-            //imbMujer();
+            //alert("Hola Mujer!!");
+            imbMujer();
             break;
         default:
             alert("Digite una opción válida.");
             break;
     }
-    condicion=prompt("Indiquenos su condición. Digite 1 para Hombre - 2 para Mujer y 0 para salir");
+    condicion = prompt("Indiquenos su condición. Digite 1 para Hombre - 2 para Mujer y 0 para salir");
 }
-    alert("Hasta luego.");
+alert("Hasta luego.");
 
 
 
