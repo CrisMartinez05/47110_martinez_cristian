@@ -1,3 +1,21 @@
+function imbHombre(){
+    if(edad>60){
+let resultadoImb = peso*13.5+487;
+alert ("Su imb es"+ blanco+ resultadoImb);
+    }else if(edad>30){
+        let resultadoImb = peso*11.6+879;
+        alert ("Su imb es"+ blanco+ resultadoImb);
+    }else if(edad>18){
+        let resultadoImb = peso*15.3+679;
+        alert ("Su imb es"+ blanco+ resultadoImb);
+    }else if(edad>9){
+        let resultadoImb = peso*17.5+651;
+        alert ("Su imb es"+ blanco+ resultadoImb);
+    }else{
+        alert("No se puede calcular.");
+    }
+}
+
 const punto = ".";
 const blanco = " ";
 let nombreUsuario = prompt("Por favor ingrese su nombre.");
@@ -22,12 +40,12 @@ let condicion = prompt("Indiquenos su condición. Digite 1 para Hombre - 2 para 
 while(condicion!= "0"){
     switch (condicion) {
         case "1":
-            alert("Hola Hombre!!");
-            //function imbHombre();
+            //alert("Hola Hombre!!");
+            imbHombre();
             break;
         case "2":
             alert("Hola Mujer!!");
-            //function imbMujer();
+            //imbMujer();
             break;
         default:
             alert("Digite una opción válida.");
