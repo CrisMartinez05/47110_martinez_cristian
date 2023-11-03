@@ -95,6 +95,13 @@ function imbMujer() {
     }
 }
 
+class Usuario{
+    constructor(nombre, edad, peso){
+        this.nombre=nombre;
+        this.edad=edad;
+        this.peso=parseFloat(peso);
+    }
+}
 
 
 while (nombreUsuario == "") {
