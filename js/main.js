@@ -1,8 +1,10 @@
 const punto = ".";
 const blanco = " ";
 let nombre;
+let altura;
 let peso;
 let edad;
+let imc;
 let nivelActividad;
 let resultadoImb;
 let reqCalorico;
@@ -14,7 +16,7 @@ function imbHombre() {
     if (edad > 60) {
         resultadoImb = peso * 13.5 + 487;
         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (this.edad > 30) {
+    } else if (edad > 30) {
         resultadoImb = peso * 11.6 + 879;
         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
     } else if (edad > 18) {
@@ -133,22 +135,35 @@ function agregarUsuario() {
     }
     alert("La edad ingresada es" + blanco + edad + blanco + "años" + punto);
 
+    //ALTURA
+
+    altura=parseFloat(prompt("Ingrese su altura en 'metros'."));
+
+    alert("Usted ingresó "+altura+" metros.");
+
     //PESO
+
     peso = parseFloat(prompt("Ahora ingrese su peso en kilos."));
 
     alert("El peso ingresado es" + blanco + peso + blanco + "kilos" + punto);
 
+    let alturaCuadrado=altura*altura;
+
+    imc=peso/alturaCuadrado;
+
     let nuevoUsuario = {
         nombre: nombre,
         edad: edad,
-        peso: parseFloat(peso)
+        peso: peso,
+        imc: imc
+        
     };
 
     console.log(nuevoUsuario);
 
     Usuarios.push(nuevoUsuario);
 
-    alert("Usuario: "+nuevoUsuario.nombre+",\nEdad: "+nuevoUsuario.edad+" años,\nPeso: "+nuevoUsuario.peso+" kilos.\nDatos guardados correctamente.");
+    alert("Usuario: "+nuevoUsuario.nombre+",\nEdad: "+nuevoUsuario.edad+" años,\nPeso: "+nuevoUsuario.peso+" kilos,\nIMC: "+nuevoUsuario.imc.toFixed(2)+".\nDatos guardados correctamente.");
 
 };
 
@@ -169,7 +184,7 @@ while (condicion != "1" && condicion != "2") {
     alert("OPCION INGRESADA INCORRECTA");
 
     condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
-}
+};
 switch (condicion) {
     case "1":
         imbHombre();
