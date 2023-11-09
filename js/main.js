@@ -1,17 +1,20 @@
 const punto = ".";
 const blanco = " ";
-let nombreUsuario;
-let peso = 0;
-let edad = 0;
+let nombre;
+let peso;
+let edad;
 let nivelActividad;
 let resultadoImb;
 let reqCalorico;
 
+//FUNCIONES
+
+//CALCULO DE IMB Y REQUERIMIENTO CALORICO SEGUN SEXO Y NIVEL DE ACTIVIDAD DECLARADO 
 function imbHombre() {
     if (edad > 60) {
         resultadoImb = peso * 13.5 + 487;
         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (edad > 30) {
+    } else if (this.edad > 30) {
         resultadoImb = peso * 11.6 + 879;
         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
     } else if (edad > 18) {
@@ -51,7 +54,7 @@ function imbHombre() {
             break;
     }
 
-}
+};
 
 function imbMujer() {
     if (edad > 60) {
@@ -95,65 +98,123 @@ function imbMujer() {
             alert("Digite una opción válida.");
             break;
     }
-}
+};
 
-class Usuario {
-    constructor(nombre, edad, peso) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.peso = parseFloat(peso);
-    }
-}
+//AGREGAR OBJETO AL ARRAY
+function agregarUsuario() {
 
-nombreUsuario = prompt("Por favor ingrese su nombre.");
+    // INGRESAR DATOS
 
-while (nombreUsuario == "") {
-    alert("Debe ingresar un nombre válido.");
-    
-    nombreUsuario = prompt("Por favor ingrese su nombre.");
-}
-alert("Buenos días Sr/a " + nombreUsuario + punto);
+    //NOMBRE
+    nombre = prompt("Por favor ingrese un nombre de usuario. Utilice mayúsculas, números y caracteres especiales para evitar duplicados.");
 
-edad = parseInt(prompt("Ingrese su edad."));
-
-while(edad<9){
-    alert("Su metabolismo basal no se debe calcular.");
-    alert("Hasta luego.");
-
-    nombreUsuario = prompt("Por favor ingrese su nombre.");
-    while (nombreUsuario == "") {
+    while (nombre == "") {
         alert("Debe ingresar un nombre válido.");
-        nombreUsuario = prompt("Por favor ingrese su nombre.");
+
+        nombre = prompt("Por favor ingrese un nombre de usuario. Utilice mayúsculas, números y caracteres especiales para evitar duplicados.");
     }
-    alert("Buenos días Sr/a " + nombreUsuario + punto);
-    
+    alert("Buenos días Sr/a " + nombre + punto);
+
+    //EDAD
     edad = parseInt(prompt("Ingrese su edad."));
-}
-alert("La edad ingresada es" + blanco + edad + blanco + "años" + punto);
 
-peso = parseInt(prompt("Ahora ingrese su peso en kilos."));
+    while (edad <= 9) {
+        alert("Su requerimiento calórico no se debería calcular.");
+        alert("Hasta luego.");
 
-alert("El peso ingresado es" + blanco + peso + blanco + "kilos" + punto);
+        nombre = prompt("Por favor ingrese su nombre.");
+        while (nombre == "") {
+            alert("Debe ingresar un nombre válido.");
+            nombre = prompt("Por favor ingrese su nombre.");
+        }
+        alert("Buenos días Sr/a " + nombre + punto);
 
-let condicion = prompt("Indiquenos su condición. Digite 1 para Hombre - 2 para Mujer y 0 para salir");
-while (condicion != "0") {
-    switch (condicion) {
-        case "1":
-            imbHombre();
-            break;
-        case "2":
-            //alert("Hola Mujer!!");
-            imbMujer();
-            break;
-        default:
-            alert("Digite una opción válida.");
-            break;
+        edad = parseInt(prompt("Ingrese su edad."));
     }
-    condicion = prompt("Indiquenos su condición. Digite 1 para Hombre - 2 para Mujer y 0 para salir");
+    alert("La edad ingresada es" + blanco + edad + blanco + "años" + punto);
+
+    //PESO
+    peso = parseFloat(prompt("Ahora ingrese su peso en kilos."));
+
+    alert("El peso ingresado es" + blanco + peso + blanco + "kilos" + punto);
+
+    let nuevoUsuario = {
+        nombre: nombre,
+        edad: edad,
+        peso: parseFloat(peso)
+    };
+
+    console.log(nuevoUsuario);
+
+    Usuarios.push(nuevoUsuario);
+
+    alert("Usuario: "+nuevoUsuario.nombre+",\nEdad: "+nuevoUsuario.edad+" años,\nPeso: "+nuevoUsuario.peso+" kilos.\nDatos guardados correctamente.");
+
+};
+
+
+//INICIO DEL PROGRAMA
+
+//DECLARACION DE ARRAY
+const Usuarios = [];
+
+agregarUsuario();
+
+//SOLICITUD DE CONDICION
+
+let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
+
+while (condicion != "1" && condicion != "2") {
+
+    alert("OPCION INGRESADA INCORRECTA");
+
+    condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
 }
-alert("Hasta luego.");
+switch (condicion) {
+    case "1":
+        imbHombre();
+        break;
+    case "2":
+        imbMujer();
+        break;
+
+};
 
 
+let continuar = prompt("Cómo desea continuar?\n Digite una de las siguientes opciones:\n 1 Realizar otra consulta.\n 0 Salir.")
+
+while (continuar !== "0") {
+
+    switch (continuar) {
+        case "1":
+            
+        agregarUsuario();
+
+            //SOLICITUD DE CONDICION
+
+            condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
+
+            while (condicion != "1" && condicion != "2") {
+
+                alert("OPCION INGRESADA INCORRECTA");
+
+                condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
+            }
+            switch (condicion) {
+                case "1":
+                    imbHombre();
+                    break;
+                case "2":
+                    imbMujer();
+                    break;
+
+            };
+
+            continuar = prompt("Cómo desea continuar?\n Digite una de las siguientes opciones:\n 1 Realizar otra consulta.\n 0 Salir.")
+
+    }
+}
+alert("Hasta luego.")
 
 
 
