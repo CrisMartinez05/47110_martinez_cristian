@@ -4,6 +4,7 @@ let nombre;
 let altura;
 let peso;
 let edad;
+let alturaCuadrado;
 let imc;
 let nivelActividad;
 let resultadoImb;
@@ -99,84 +100,87 @@ function imbMujer() {
         default:
             alert("Digite una opción válida.");
             break;
-    }
+        }
+    };
+    
+function calculoIMC(){
+        imc = parseFloat(peso.value) / parseFloat(alturaCuadrado);
+        console.log(imc.toFixed(2));
+       
 };
 
 //AGREGAR OBJETO AL ARRAY
-function agregarUsuario() {
+function ingresarDatos() {
 
     // INGRESAR DATOS
 
     //NOMBRE
-    nombre = prompt("Por favor ingrese un nombre de usuario. Utilice mayúsculas, números y caracteres especiales para evitar duplicados.");
+    nombre = document.getElementById("nombre");
+    nombre.addEventListener("change", () => {
+        alert("Buen día "+nombre.value+".");
+    });
+     
+        //EDAD
 
-    while (nombre == "") {
-        alert("Debe ingresar un nombre válido.");
-
-        nombre = prompt("Por favor ingrese un nombre de usuario. Utilice mayúsculas, números y caracteres especiales para evitar duplicados.");
-    }
-    alert("Buenos días Sr/a " + nombre + punto);
-
-    //EDAD
-    edad = parseInt(prompt("Ingrese su edad."));
-
-    while (edad <= 9) {
-        alert("Su requerimiento calórico no se debería calcular.");
-        alert("Hasta luego.");
-
-        nombre = prompt("Por favor ingrese su nombre.");
-        while (nombre == "") {
-            alert("Debe ingresar un nombre válido.");
-            nombre = prompt("Por favor ingrese su nombre.");
-        }
-        alert("Buenos días Sr/a " + nombre + punto);
-
-        edad = parseInt(prompt("Ingrese su edad."));
-    }
-    alert("Usted ingresó:" + blanco + edad + blanco + "años" + punto);
-
-    //ALTURA
-
-    altura=parseFloat(prompt("Ingrese su altura en 'metros'."));
-
-    alert("Usted ingresó: "+altura+" metros.");
-
-    //PESO
-
-    peso = parseFloat(prompt("Ahora ingrese su peso en kilos."));
-
-    alert("Usted ingresó:" + blanco + peso + blanco + "kilos" + punto);
-
-    let alturaCuadrado=altura*altura;
-
-    imc=peso/alturaCuadrado;
-
-    let nuevoUsuario = {
-        nombre: nombre,
-        edad: edad,
-        peso: peso,
-        imc: imc
+        edad = document.getElementById("edad");
+        edad.addEventListener("change", () => {
+            console.log(edad.value);
+        });
         
-    };
+        //ALTURA
+        
+        altura = document.getElementById("altura");
+        altura.addEventListener("change", () => {
+            console.log(altura.value);   
 
-    console.log(nuevoUsuario);
+            alturaCuadrado = altura.value*altura.value;
+            console.log(alturaCuadrado.toFixed(2));
+            
+            });       
+       
+        //PESO
+    
+        peso = document.getElementById("peso");
+        peso.addEventListener("change", () => {
+            console.log(peso.value);
+        });
+        
+        // let nuevoUsuario = {
+            //     nombre: nombre,
+            //     edad: edad,
+            //     peso: peso,
+            //     imc: imc
+            
+            // };
+            
+            // console.log(nuevoUsuario);
+            
+            // Usuarios.push(nuevoUsuario);
+            
+            // alert("Usuario: " + nuevoUsuario.nombre + ",\nEdad: " + nuevoUsuario.edad + " años,\nPeso: " + nuevoUsuario.peso + " kilos,\nIMC: " + nuevoUsuario.imc.toFixed(2) + ".\nDatos guardados correctamente.");
+            
+        };
+        
+        
+        
+        //INICIO DEL PROGRAMA
+        
+        //DECLARACION DE ARRAY
+        const Usuarios = [];
+        
+        ingresarDatos();
+        
+        const boton = document.getElementById("imc");
+        boton.addEventListener("click", ()=>{
+            calculoIMC();
+            let parrafo=document.createElement("div");
+            parrafo.innerHTML=`<p>Según los datos ingresados su <b>IMC</b> (Índice de Masa Corporal) es <b>${imc.toFixed(2)}</b></p>`;
+            document.body.appendChild(parrafo);
+        });
 
-    Usuarios.push(nuevoUsuario);
 
-    alert("Usuario: "+nuevoUsuario.nombre+",\nEdad: "+nuevoUsuario.edad+" años,\nPeso: "+nuevoUsuario.peso+" kilos,\nIMC: "+nuevoUsuario.imc.toFixed(2)+".\nDatos guardados correctamente.");
-
-};
-
-
-//INICIO DEL PROGRAMA
-
-//DECLARACION DE ARRAY
-const Usuarios = [];
-
-agregarUsuario();
-
-//SOLICITUD DE CONDICION
-
+        //SOLICITUD DE CONDICION
+/*
 let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
 
 while (condicion != "1" && condicion != "2") {
@@ -230,6 +234,6 @@ while (continuar !== "0") {
     }
 }
 alert("Hasta luego.")
-
+*/
 
 
