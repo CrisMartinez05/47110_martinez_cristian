@@ -173,9 +173,11 @@ function ingresarDatos() {
         const boton = document.getElementById("imc");
         boton.addEventListener("click", ()=>{
             calculoIMC();
-            let parrafo=document.createElement("div");
-            parrafo.innerHTML=`<p>Según los datos ingresados su <b>IMC</b> (Índice de Masa Corporal) es <b>${imc.toFixed(2)}</b></p>`;
-            document.body.appendChild(parrafo);
+            let padre=document.getElementById("resultadoIMC");
+            let p=document.createElement("p");
+            p.innerHTML=`<p>Según los datos ingresados su <b>IMC</b> (Índice de Masa Corporal) es <b>${imc.toFixed(2)}</b></p>`;
+            padre.appendChild(p);
+           
         });
 
 

@@ -18,3 +18,9 @@ section{
 .form-floating{
     margin: auto;
 }
+
+.container .btn{
+    display: flex;
+    margin: auto;
+    position: relative;
+}
