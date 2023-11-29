@@ -31,12 +31,24 @@
             <label for="floatingInput">Ingrese su peso en kilos</label>
         </div>
         <div class="form-floating col-lg-6 sm-12 mb-3">
-            <button type="button" class="btn btn-warning" id="imc">CALCULAR IMC</button>
+            <div class="row">
+                <div class="form-floating col-lg-6 mb-3">
+                    <button type="button" class="btn btn-warning" id="imc">CALCULAR IMC</button>
+                </div>
+                <div class="form-floating col-lg-6 mb-3" id="resultadoIMC">
+
+
+                </div>
+
+            </div>
         </div>
-        <div class="form-floating col-lg-6 sm-12 mb-3" id="resultadoIMC">
-            
-            <!-- <input type="number" class="form-control" id="resultadoIMC" autocomplete="off">
-            <label for="floatingInput">Según los datos ingresados su IMC (Indice de masa corporal) es: </label> -->
+        <div class="form-floating col-lg-6 mb-3">
+            <select name="" id="selectCondicion" class="form-control">
+                <option value="">Seleccione su condición</option>
+                <option value="hombre">Masculino</option>
+                <option value="mujer">Femenino</option>
+            </select>
+
         </div>
 
 

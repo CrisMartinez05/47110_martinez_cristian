@@ -12,7 +12,25 @@ let reqCalorico;
 
 //FUNCIONES
 
-//CALCULO DE IMB Y REQUERIMIENTO CALORICO SEGUN SEXO Y NIVEL DE ACTIVIDAD DECLARADO 
+function inicializarSelect(){
+    const select=document.getElementById("selectCondicion");
+
+    select.addEventListener("change",()=>{
+
+        const condicion = select.value;
+
+        switch(condicion){
+            case "hombre":
+                imbHombre();
+                break;
+                case "mujer":
+                    imbMujer();
+                    break;
+        }
+    })
+}
+
+//CALCULO DE IMC, IMB Y REQUERIMIENTO CALORICO SEGUN SEXO Y NIVEL DE ACTIVIDAD DECLARADO 
 function imbHombre() {
     if (edad > 60) {
         resultadoImb = peso * 13.5 + 487;
@@ -101,10 +119,10 @@ function imbMujer() {
             alert("Digite una opción válida.");
             break;
         }
-    };
+};
     
 function calculoIMC(){
-        imc = parseFloat(peso.value) / parseFloat(alturaCuadrado);
+        imc = parseFloat(peso) / alturaCuadrado;
         console.log(imc.toFixed(2));
        
 };
@@ -115,104 +133,104 @@ function ingresarDatos() {
     // INGRESAR DATOS
 
     //NOMBRE
-    nombre = document.getElementById("nombre");
-    nombre.addEventListener("change", () => {
-        alert("Buen día "+nombre.value+".");
+    const inputNombre = document.getElementById("nombre");
+    inputNombre.addEventListener("change", () => {
+        nombre=inputNombre.value;
+        console.log(nombre);
+        alert("Buen día "+nombre+".");
     });
      
         //EDAD
 
-        edad = document.getElementById("edad");
-        edad.addEventListener("change", () => {
-            console.log(edad.value);
+        const inputEdad = document.getElementById("edad");
+        inputEdad.addEventListener("change", () => {
+            edad=inputEdad.value;
+            console.log(edad);
         });
         
         //ALTURA
         
-        altura = document.getElementById("altura");
-        altura.addEventListener("change", () => {
-            console.log(altura.value);   
+        const inputAltura = document.getElementById("altura");
+        inputAltura.addEventListener("change", () => {
+            altura=inputAltura.value;
+            console.log(altura);   
 
-            alturaCuadrado = altura.value*altura.value;
+            alturaCuadrado = parseFloat(altura)*parseFloat(altura);
             console.log(alturaCuadrado.toFixed(2));
             
             });       
        
         //PESO
     
-        peso = document.getElementById("peso");
-        peso.addEventListener("change", () => {
-            console.log(peso.value);
-        });
-        
-        // let nuevoUsuario = {
-            //     nombre: nombre,
-            //     edad: edad,
-            //     peso: peso,
-            //     imc: imc
-            
-            // };
-            
-            // console.log(nuevoUsuario);
-            
-            // Usuarios.push(nuevoUsuario);
-            
-            // alert("Usuario: " + nuevoUsuario.nombre + ",\nEdad: " + nuevoUsuario.edad + " años,\nPeso: " + nuevoUsuario.peso + " kilos,\nIMC: " + nuevoUsuario.imc.toFixed(2) + ".\nDatos guardados correctamente.");
-            
-        };
-        
-        
-        
-        //INICIO DEL PROGRAMA
-        
-        //DECLARACION DE ARRAY
-        const Usuarios = [];
-        
-        ingresarDatos();
-        
-        const boton = document.getElementById("imc");
-        boton.addEventListener("click", ()=>{
-            calculoIMC();
-            let padre=document.getElementById("resultadoIMC");
-            let p=document.createElement("p");
-            p.innerHTML=`<p>Según los datos ingresados su <b>IMC</b> (Índice de Masa Corporal) es <b>${imc.toFixed(2)}</b></p>`;
-            padre.appendChild(p);
-           
+        const inputPeso = document.getElementById("peso");
+        inputPeso.addEventListener("change", () => {
+            peso=inputPeso.value;
+            console.log(peso);
         });
 
-
-        //SOLICITUD DE CONDICION
-/*
-let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
-
-while (condicion != "1" && condicion != "2") {
-
-    alert("OPCION INGRESADA INCORRECTA");
-
-    condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
+        let nuevoUsuario = {
+            nombre: nombre,
+            edad: edad,
+            peso: peso,
+          
+        };      
+        
 };
-switch (condicion) {
-    case "1":
-        imbHombre();
-        break;
-    case "2":
-        imbMujer();
-        break;
-
-};
-
-
-let continuar = prompt("Cómo desea continuar?\n Digite una de las siguientes opciones:\n 1 Realizar otra consulta.\n 0 Salir.")
-
-while (continuar !== "0") {
-
-    switch (continuar) {
+    
+    
+    
+    //INICIO DEL PROGRAMA
+    
+    //DECLARACION DE ARRAY
+    const Usuarios = [];
+    
+    ingresarDatos();
+    console.log(nuevoUsuario);
+    
+    
+    const boton = document.getElementById("imc");
+    boton.addEventListener("click", ()=>{
+        calculoIMC();
+        let padre=document.getElementById("resultadoIMC");
+        let p=document.createElement("p");
+        p.innerHTML=`<p>Según los datos ingresados su <b>IMC</b> (Índice de Masa Corporal) es <b>${imc.toFixed(2)}</b></p>`;
+        padre.appendChild(p);
+        
+    });
+    
+    inicializarSelect();
+    //SOLICITUD DE CONDICION
+    /*
+    let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
+    
+    while (condicion != "1" && condicion != "2") {
+        
+        alert("OPCION INGRESADA INCORRECTA");
+        
+        condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
+    };
+    switch (condicion) {
         case "1":
+            imbHombre();
+            break;
+            case "2":
+                imbMujer();
+                break;
+                
+            };
+            
+            
+            let continuar = prompt("Cómo desea continuar?\n Digite una de las siguientes opciones:\n 1 Realizar otra consulta.\n 0 Salir.")
+            
+            while (continuar !== "0") {
+                
+                switch (continuar) {
+                    case "1":
             
         agregarUsuario();
-
+        
             //SOLICITUD DE CONDICION
-
+            
             condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
 
             while (condicion != "1" && condicion != "2") {
@@ -225,17 +243,25 @@ while (continuar !== "0") {
                 case "1":
                     imbHombre();
                     break;
-                case "2":
-                    imbMujer();
+                    case "2":
+                        imbMujer();
                     break;
 
-            };
+                };
 
-            continuar = prompt("Cómo desea continuar?\n Digite una de las siguientes opciones:\n 1 Realizar otra consulta.\n 0 Salir.")
+                continuar = prompt("Cómo desea continuar?\n Digite una de las siguientes opciones:\n 1 Realizar otra consulta.\n 0 Salir.")
+                
+            }
+        }
+        alert("Hasta luego.")
+        */
+       
 
-    }
-}
-alert("Hasta luego.")
-*/
 
-
+       
+       
+           
+           // Usuarios.push(nuevoUsuario);
+           
+           // alert("Usuario: " + nuevoUsuario.nombre + ",\nEdad: " + nuevoUsuario.edad + " años,\nPeso: " + nuevoUsuario.peso + " kilos,\nIMC: " + nuevoUsuario.imc.toFixed(2) + ".\nDatos guardados correctamente.");
+           
