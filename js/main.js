@@ -9,15 +9,76 @@ let imc;
 let nivelActividad;
 let resultadoImb;
 let reqCalorico;
+let condicion;
 
 //FUNCIONES
+
+function inicializarSelectNivel(){
+    const select=document.getElementById("selectNivelActividad");
+    select.addEventListener("change",()=>{
+
+        const nivel=select.value;
+
+        switch(condicion){
+            case "hombre":
+               switch (nivel) {
+                    case "1":
+            reqCalorico = resultadoImb * 1.2;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+            break;
+                    case "2":
+            reqCalorico = resultadoImb * 1.3;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+            break;
+                    case "3":
+            reqCalorico = resultadoImb * 1.4;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+            break;
+                    case "4":
+            reqCalorico = resultadoImb * 1.5;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+            break;
+                    case "5":
+            reqCalorico = resultadoImb * 1.7;
+            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+            break;
+          };
+          break;
+          case "mujer":
+            switch (nivel){
+                case "1":
+                    reqCalorico = resultadoImb * 1.2;
+                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                    break;
+                case "2":
+                    reqCalorico = resultadoImb * 1.3;
+                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                    break;
+                case "3":
+                    reqCalorico = resultadoImb * 1.4;
+                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                    break;
+                case "4":
+                    reqCalorico = resultadoImb * 1.5;
+                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                    break;
+                case "5":
+                    reqCalorico = resultadoImb * 1.7;
+                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                    break;
+                };
+            break;
+                };
+       
+    });
+};
 
 function inicializarSelectCondicion(){
     const select=document.getElementById("selectCondicion");
 
     select.addEventListener("change",()=>{
 
-        const condicion = select.value;
+        condicion = select.value;
 
         switch(condicion){
             case "hombre":
@@ -28,7 +89,7 @@ function inicializarSelectCondicion(){
                     break;
         }
     })
-}
+};
 
 //CALCULO DE IMC, IMB Y REQUERIMIENTO CALORICO SEGUN SEXO Y NIVEL DE ACTIVIDAD DECLARADO 
 function imbHombre() {
@@ -48,32 +109,8 @@ function imbHombre() {
         alert("Su metabolismo basal no se debe calcular.");
     }
 /*
-    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");
-    switch (nivelActividad) {
-        case "1":
-            reqCalorico = resultadoImb * 1.2;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "2":
-            reqCalorico = resultadoImb * 1.3;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "3":
-            reqCalorico = resultadoImb * 1.4;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "4":
-            reqCalorico = resultadoImb * 1.5;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "5":
-            reqCalorico = resultadoImb * 1.7;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        default:
-            alert("Digite una opción válida.");
-            break;
-    }*/
+    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");*/
+    
 
 };
 
@@ -94,32 +131,8 @@ function imbMujer() {
         alert("Su metabolismo basal no se debe calcular.");
     }
     /*
-    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");
-    switch (nivelActividad) {
-        case "1":
-            reqCalorico = resultadoImb * 1.2;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "2":
-            reqCalorico = resultadoImb * 1.3;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "3":
-            reqCalorico = resultadoImb * 1.4;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "4":
-            reqCalorico = resultadoImb * 1.5;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        case "5":
-            reqCalorico = resultadoImb * 1.7;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-        default:
-            alert("Digite una opción válida.");
-            break;
-        }*/
+    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");*/
+    
 };
     
 function calculoIMC(){
@@ -195,13 +208,14 @@ function ingresarDatos() {
         let padre=document.getElementById("resultadoIMC");
         let p=document.createElement("p");
         p.innerHTML=`<p>Según los datos ingresados su <b>IMC</b> (Índice de Masa Corporal) es <b>${imc.toFixed(2)}</b></p>`;
+        padre.innerHTML="";
         padre.appendChild(p);
         
     });
     
     inicializarSelectCondicion();
 
-    // inicializarSelectNivel();
+    inicializarSelectNivel();
     //SOLICITUD DE CONDICION
     /*
     let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
