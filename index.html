@@ -14,41 +14,58 @@
     <h1>VIVIR FITNESS - 3° ENTREGA - Cristian Martinez</h1>
 
     <section class="container">
-        <div class="form-floating col-lg-6 sm-12 mb-3">
+        <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="text" class="form-control" id="nombre" autocomplete="off">
             <label for="floatingInput">Ingrese su Nombre</label>
         </div>
-        <div class="form-floating col-lg-6 sm-12 mb-3">
+        <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="number" class="form-control" id="edad" autocomplete="off">
             <label for="floatingInput">Ingrese su Edad</label>
         </div>
-        <div class="form-floating col-lg-6 sm-12 mb-3">
+        <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="number" class="form-control" id="altura" autocomplete="off">
             <label for="floatingInput">Ingrese su altura en metros</label>
         </div>
-        <div class="form-floating col-lg-6 sm-12 mb-3">
+        <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="number" class="form-control" id="peso" autocomplete="off">
             <label for="floatingInput">Ingrese su peso en kilos</label>
         </div>
-        <div class="form-floating col-lg-6 sm-12 mb-3">
+        <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <div class="row">
-                <div class="form-floating col-lg-6 mb-3">
+                <div class="form-floating col-lg-6 col-sm-6 mb-3">
                     <button type="button" class="btn btn-warning" id="imc">CALCULAR IMC</button>
                 </div>
-                <div class="form-floating col-lg-6 mb-3" id="resultadoIMC">
+                <div class="form-floating col-lg-6 col-sm-6 mb-3" id="resultadoIMC">
 
 
                 </div>
 
             </div>
         </div>
-        <div class="form-floating col-lg-6 mb-3">
-            <select name="" id="selectCondicion" class="form-control">
-                <option value="">Seleccione su condición</option>
-                <option value="hombre">Masculino</option>
-                <option value="mujer">Femenino</option>
-            </select>
-
+        <div class="form-floating col-lg-6 col-sm-12 mb-3">
+            <div class="row">
+                <div class="form-floating col-lg-6 col-sm-6 mb-3">
+                    <select name="" id="selectCondicion" class="form-control">
+                        <option value="">Seleccione su condición</option>
+                        <option value="hombre">Masculino</option>
+                        <option value="mujer">Femenino</option>
+                    </select>
+        
+                </div>
+                <div class="form-floating col-lg-6 col-sm-6 mb-3">
+                    <select name="" id="selectNivelActividad" 
+                    class="form-control">
+                   
+                        <option value="">Nivel de Actividad</option>
+                        <option value="1">Generalmente Inactivo (Sentado)</option>
+                        <option value="2">Levemente Activo (Caminatas)</option>
+                        <option value="3">Moderadamente Activo (Ejerc. 2 a 3 veces/semana)</option>
+                        <option value="4">Activo (Ejerc. más de 3 veces/semana)</option>
+                        <option value="5">Muy Activo (Ejerc. todos los días)</option>
+                    </select>
+        
+                </div>
+            </div>
         </div>
 
 

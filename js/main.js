@@ -12,7 +12,7 @@ let reqCalorico;
 
 //FUNCIONES
 
-function inicializarSelect(){
+function inicializarSelectCondicion(){
     const select=document.getElementById("selectCondicion");
 
     select.addEventListener("change",()=>{
@@ -47,7 +47,7 @@ function imbHombre() {
     } else {
         alert("Su metabolismo basal no se debe calcular.");
     }
-
+/*
     nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");
     switch (nivelActividad) {
         case "1":
@@ -73,7 +73,7 @@ function imbHombre() {
         default:
             alert("Digite una opción válida.");
             break;
-    }
+    }*/
 
 };
 
@@ -93,6 +93,7 @@ function imbMujer() {
     } else {
         alert("Su metabolismo basal no se debe calcular.");
     }
+    /*
     nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");
     switch (nivelActividad) {
         case "1":
@@ -118,7 +119,7 @@ function imbMujer() {
         default:
             alert("Digite una opción válida.");
             break;
-        }
+        }*/
 };
     
 function calculoIMC(){
@@ -185,7 +186,7 @@ function ingresarDatos() {
     const Usuarios = [];
     
     ingresarDatos();
-    console.log(nuevoUsuario);
+    //console.log(nuevoUsuario);
     
     
     const boton = document.getElementById("imc");
@@ -198,7 +199,9 @@ function ingresarDatos() {
         
     });
     
-    inicializarSelect();
+    inicializarSelectCondicion();
+
+    // inicializarSelectNivel();
     //SOLICITUD DE CONDICION
     /*
     let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
