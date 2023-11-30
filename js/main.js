@@ -91,7 +91,13 @@ function inicializarSelectCondicion(){
     })
 };
 
-//CALCULO DE IMC, IMB Y REQUERIMIENTO CALORICO SEGUN SEXO Y NIVEL DE ACTIVIDAD DECLARADO 
+function calculoIMC(){
+        imc = parseFloat(peso) / alturaCuadrado;
+        console.log(imc.toFixed(2));
+       
+};
+
+//CALCULO DE IMB Y REQUERIMIENTO CALORICO SEGUN SEXO Y NIVEL DE ACTIVIDAD DECLARADO 
 function imbHombre() {
     if (edad > 60) {
         resultadoImb = peso * 13.5 + 487;
@@ -108,10 +114,7 @@ function imbHombre() {
     } else {
         alert("Su metabolismo basal no se debe calcular.");
     }
-/*
-    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");*/
-    
-
+  
 };
 
 function imbMujer() {
@@ -130,18 +133,9 @@ function imbMujer() {
     } else {
         alert("Su metabolismo basal no se debe calcular.");
     }
-    /*
-    nivelActividad = prompt("Indique su nivel de actividad: \n 1 generalmente inactivo (Sentado), \n 2 levemente activo(Caminatas), \n 3 moderadamente activo (Ejercicio 2 a 3 veces por semana), \n 4 Activo (Ejerc. más de 3 veces por semana), \n 5 Muy activo (Ejerc. todos los días)");*/
-    
+  
 };
-    
-function calculoIMC(){
-        imc = parseFloat(peso) / alturaCuadrado;
-        console.log(imc.toFixed(2));
-       
-};
-
-//AGREGAR OBJETO AL ARRAY
+ 
 function ingresarDatos() {
 
     // INGRESAR DATOS
@@ -201,7 +195,7 @@ function ingresarDatos() {
     ingresarDatos();
     //console.log(nuevoUsuario);
     
-    
+    //CALCULO INDICE MASA CORPORAL
     const boton = document.getElementById("imc");
     boton.addEventListener("click", ()=>{
         calculoIMC();
@@ -212,10 +206,13 @@ function ingresarDatos() {
         padre.appendChild(p);
         
     });
-    
+
+    //CALCULO DEL METABOLISMO BASAL
     inicializarSelectCondicion();
 
+    //CALCULO DEL REQUERIMIENTO CALORICO
     inicializarSelectNivel();
+    
     //SOLICITUD DE CONDICION
     /*
     let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
