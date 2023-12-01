@@ -14,22 +14,27 @@
     <h1>VIVIR FITNESS - 3° ENTREGA - Cristian Martinez</h1>
 
     <section class="container">
+        <!-- NOMBRE -->
         <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="text" class="form-control" id="nombre" autocomplete="off">
             <label for="floatingInput">Ingrese su Nombre</label>
         </div>
+        <!-- EDAD -->
         <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="number" class="form-control" id="edad" autocomplete="off">
             <label for="floatingInput">Ingrese su Edad</label>
         </div>
+        <!-- ALTURA -->
         <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="number" class="form-control" id="altura" autocomplete="off">
             <label for="floatingInput">Ingrese su altura en metros</label>
         </div>
+        <!-- PESO -->
         <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <input type="number" class="form-control" id="peso" autocomplete="off">
             <label for="floatingInput">Ingrese su peso en kilos</label>
         </div>
+        <!-- CALCULO IMC -->
         <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <div class="row">
                 <div class="form-floating col-lg-6 col-sm-6 mb-3">
@@ -42,6 +47,36 @@
 
             </div>
         </div>
+        <!-- TABLA DE COMPOSICION CORPORAL -->
+        <div class="form-floating col-lg-6 col-sm-12 mb-3">
+            <table class="table table-dark table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Composición corporal</th>
+                        <th scope="col">Índice de masa corporal (IMC)</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>Peso inferior al normal</td>
+                        <td>Menos de 18.5</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>18.5 – 24.9</td>
+                    </tr>
+                    <tr>
+                        <td>Peso superior al normal</td>
+                        <td>25.0 – 29.9</td>
+                    </tr>
+                    <tr>
+                        <td>Obesidad</td>
+                        <td>Más de 30.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- CALCULO DE IMB Y REQ. CALORICO DIARIO -->
         <div class="form-floating col-lg-6 col-sm-12 mb-3">
             <div class="row">
                 <div class="form-floating col-lg-6 col-sm-6 mb-3">
@@ -50,12 +85,11 @@
                         <option value="hombre">Masculino</option>
                         <option value="mujer">Femenino</option>
                     </select>
-        
+
                 </div>
                 <div class="form-floating col-lg-6 col-sm-6 mb-3">
-                    <select name="" id="selectNivelActividad" 
-                    class="form-control">
-                   
+                    <select name="" id="selectNivelActividad" class="form-control">
+
                         <option value="">Nivel de Actividad</option>
                         <option value="1">Generalmente Inactivo (Sentado)</option>
                         <option value="2">Levemente Activo (Caminatas)</option>
@@ -63,7 +97,7 @@
                         <option value="4">Activo (Ejerc. más de 3 veces/semana)</option>
                         <option value="5">Muy Activo (Ejerc. todos los días)</option>
                     </select>
-        
+
                 </div>
             </div>
         </div>
