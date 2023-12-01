@@ -10,131 +10,47 @@ let nivelActividad;
 let resultadoImb;
 let reqCalorico;
 let condicion;
+let nivel;
 
 //FUNCIONES
 
-function inicializarSelectNivel(){
-    const select=document.getElementById("selectNivelActividad");
-    select.addEventListener("change",()=>{
-
-        const nivel=select.value;
-
-        switch(condicion){
-            case "hombre":
-               switch (nivel) {
-                    case "1":
-            reqCalorico = resultadoImb * 1.2;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-                    case "2":
-            reqCalorico = resultadoImb * 1.3;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-                    case "3":
-            reqCalorico = resultadoImb * 1.4;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-                    case "4":
-            reqCalorico = resultadoImb * 1.5;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-                    case "5":
-            reqCalorico = resultadoImb * 1.7;
-            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-            break;
-          };
-          break;
-          case "mujer":
-            switch (nivel){
-                case "1":
-                    reqCalorico = resultadoImb * 1.2;
-                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-                    break;
-                case "2":
-                    reqCalorico = resultadoImb * 1.3;
-                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-                    break;
-                case "3":
-                    reqCalorico = resultadoImb * 1.4;
-                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-                    break;
-                case "4":
-                    reqCalorico = resultadoImb * 1.5;
-                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-                    break;
-                case "5":
-                    reqCalorico = resultadoImb * 1.7;
-                    alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
-                    break;
-                };
-            break;
-                };
-       
-    });
-};
-
-function inicializarSelectCondicion(){
-    const select=document.getElementById("selectCondicion");
-
-    select.addEventListener("change",()=>{
-
-        condicion = select.value;
-
-        switch(condicion){
-            case "hombre":
-                imbHombre();
-                break;
-                case "mujer":
-                    imbMujer();
-                    break;
-        }
-    })
-};
-
-function calculoIMC(){
-        imc = parseFloat(peso) / alturaCuadrado;
-        console.log(imc.toFixed(2));
-       
-};
-
-//CALCULO DE IMB Y REQUERIMIENTO CALORICO SEGUN SEXO Y NIVEL DE ACTIVIDAD DECLARADO 
-function imbHombre() {
-    if (edad > 60) {
-        resultadoImb = peso * 13.5 + 487;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (edad > 30) {
-        resultadoImb = peso * 11.6 + 879;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (edad > 18) {
-        resultadoImb = peso * 15.3 + 679;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (edad > 9) {
-        resultadoImb = peso * 17.5 + 651;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else {
-        alert("Su metabolismo basal no se debe calcular.");
-    }
+// function imbHombre() {
+//     if (edad > 60) {
+//         resultadoImb = peso * 13.5 + 487;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else if (edad > 30) {
+//         resultadoImb = peso * 11.6 + 879;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else if (edad > 18) {
+//         resultadoImb = peso * 15.3 + 679;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else if (edad > 9) {
+//         resultadoImb = peso * 17.5 + 651;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else {
+//         alert("Su metabolismo basal no se debe calcular.");
+//     }
   
-};
+// };
 
-function imbMujer() {
-    if (edad > 60) {
-        resultadoImb = peso * 10.5 + 596;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (edad > 30) {
-        resultadoImb = peso * 8.7 + 829;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (edad > 18) {
-        resultadoImb = peso * 14.7 + 479;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else if (edad > 9) {
-        resultadoImb = peso * 12.2 + 746;
-        alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
-    } else {
-        alert("Su metabolismo basal no se debe calcular.");
-    }
+// function imbMujer() {
+//     if (edad > 60) {
+//         resultadoImb = peso * 10.5 + 596;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else if (edad > 30) {
+//         resultadoImb = peso * 8.7 + 829;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else if (edad > 18) {
+//         resultadoImb = peso * 14.7 + 479;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else if (edad > 9) {
+//         resultadoImb = peso * 12.2 + 746;
+//         alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+//     } else {
+//         alert("Su metabolismo basal no se debe calcular.");
+//     }
   
-};
+// };
  
 function ingresarDatos() {
 
@@ -185,6 +101,182 @@ function ingresarDatos() {
         
 };
     
+function calculoIMC(){
+    imc = parseFloat(peso) / alturaCuadrado;
+    console.log(imc.toFixed(2));
+   
+};
+
+function calculoIMB(){
+
+    switch (condicion){
+        case "hombre":
+            if (edad > 60) {
+                resultadoImb = peso * 13.5 + 487;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else if (edad > 30) {
+                resultadoImb = peso * 11.6 + 879;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else if (edad > 18) {
+                resultadoImb = peso * 15.3 + 679;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else if (edad > 9) {
+                resultadoImb = peso * 17.5 + 651;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else {
+                alert("Su metabolismo basal no se debe calcular.");
+            };
+            break;
+        case "mujer":
+            if (edad > 60) {
+                resultadoImb = peso * 10.5 + 596;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else if (edad > 30) {
+                resultadoImb = peso * 8.7 + 829;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else if (edad > 18) {
+                resultadoImb = peso * 14.7 + 479;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else if (edad > 9) {
+                resultadoImb = peso * 12.2 + 746;
+                alert("Su metabolismo basal es de" + blanco + resultadoImb.toFixed() + blanco + "calorías" + punto);
+            } else {
+                alert("Su metabolismo basal no se debe calcular.");
+            };
+            break;
+    };
+
+};
+
+function calculoCalDia(){
+
+    switch(condicion){
+            case "hombre":
+
+                switch (nivel) {
+                    case "1":
+                        reqCalorico = resultadoImb * 1.2;
+                            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                    case "2":
+                        reqCalorico = resultadoImb * 1.3;
+                            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                    case "3":
+                        reqCalorico = resultadoImb * 1.4;
+                            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" +  punto);
+                        break;
+                    case "4":
+                        reqCalorico = resultadoImb * 1.5;
+                            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                    case "5":
+                        reqCalorico = resultadoImb * 1.7;
+                            alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                };
+                break;
+
+            case "mujer":
+                
+                switch (nivel){
+                    case "1":
+                        reqCalorico = resultadoImb * 1.2;
+                        alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                    case "2":
+                        reqCalorico = resultadoImb * 1.3;
+                        alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                    case "3":
+                        reqCalorico = resultadoImb * 1.4;
+                        alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                    case "4":
+                        reqCalorico = resultadoImb * 1.5;
+                        alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                    case "5":
+                        reqCalorico = resultadoImb * 1.7;
+                        alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+                        break;
+                };
+                break;
+    };    
+
+};
+
+function inicializarSelectCondicion(){
+    const select=document.getElementById("selectCondicion");
+
+    select.addEventListener("change",()=>{
+
+        condicion = select.value;
+
+        calculoIMB();
+    })
+};
+
+function inicializarSelectNivel(){
+    const select=document.getElementById("selectNivelActividad");
+    select.addEventListener("change",()=>{
+
+        nivel=select.value;
+
+        // switch(condicion){
+        //     case "hombre":
+        //        switch (nivel) {
+        //             case "1":
+        //     reqCalorico = resultadoImb * 1.2;
+        //     alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //     break;
+        //             case "2":
+        //     reqCalorico = resultadoImb * 1.3;
+        //     alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //     break;
+        //             case "3":
+        //     reqCalorico = resultadoImb * 1.4;
+        //     alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //     break;
+        //             case "4":
+        //     reqCalorico = resultadoImb * 1.5;
+        //     alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //     break;
+        //             case "5":
+        //     reqCalorico = resultadoImb * 1.7;
+        //     alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //     break;
+        //   };
+        //   break;
+        //   case "mujer":
+        //     switch (nivel){
+        //         case "1":
+        //             reqCalorico = resultadoImb * 1.2;
+        //             alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //             break;
+        //         case "2":
+        //             reqCalorico = resultadoImb * 1.3;
+        //             alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //             break;
+        //         case "3":
+        //             reqCalorico = resultadoImb * 1.4;
+        //             alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //             break;
+        //         case "4":
+        //             reqCalorico = resultadoImb * 1.5;
+        //             alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //             break;
+        //         case "5":
+        //             reqCalorico = resultadoImb * 1.7;
+        //             alert("Según su nivel de actividad declarado debería consumir" + blanco + reqCalorico.toFixed() + blanco + "calorías al día" + punto);
+        //             break;
+        //         };
+        //     break;
+        //         };
+        calculoCalDia();
+    });
+};
+
     
     
     //INICIO DEL PROGRAMA
@@ -212,7 +304,7 @@ function ingresarDatos() {
 
     //CALCULO DEL REQUERIMIENTO CALORICO
     inicializarSelectNivel();
-    
+
     //SOLICITUD DE CONDICION
     /*
     let condicion = prompt("Indiquenos su condición.\nDigite:\n 1 para Hombre\n 2 para Mujer");
